@@ -108,7 +108,6 @@ let fireworkInterval;
 document.getElementById("startButton").onclick = function () {
     this.style.display = "none";
     document.getElementById("clock").style.display = "block";
-
     startAtBirthday();
 };
 
@@ -148,6 +147,9 @@ function startAtBirthday() {
     const birthday = new Date(now.getFullYear(), 3, 30, 0, 0, 0); 
 
     if (now >= birthday) {
+        const startButton = document.getElementById("startButton");
+        if (startButton) startButton.style.display = "none";
+        document.getElementById("clock").style.display = "none";
         typeWriter();
         startFirework();
         fireworkInterval = setInterval(startFirework, 4000);
